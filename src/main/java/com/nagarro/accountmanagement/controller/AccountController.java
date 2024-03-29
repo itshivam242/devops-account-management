@@ -16,6 +16,7 @@ public class AccountController {
     AccountService accountService;
 
 
+
     @PostMapping
     public ResponseEntity<AccountDto> addAccount(@RequestBody Account account) {
         return ResponseEntity.ok().body(accountService.addAccount(account));
@@ -34,7 +35,7 @@ public class AccountController {
     }
 
     @GetMapping("/{accountId}")
-    public ResponseEntity<AccountDto> addAccount(@PathVariable Long accountId) {
+    public ResponseEntity<AccountDto> getAccount(@PathVariable Long accountId) {
         return ResponseEntity.ok().body(accountService.getAccountById(accountId));
     }
 

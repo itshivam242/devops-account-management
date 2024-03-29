@@ -1,5 +1,6 @@
 package com.nagarro.accountmanagement.dto;
 
+import com.nagarro.accountmanagement.entity.Account;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +14,7 @@ public class AccountDto {
     private String name;
     private String email;
     private double balance;
+
+    public AccountDto(Account account) {
+    }
 }
