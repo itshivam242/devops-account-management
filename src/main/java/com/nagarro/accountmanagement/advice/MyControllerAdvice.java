@@ -16,31 +16,56 @@ import java.time.LocalDateTime;
 public class MyControllerAdvice {
     @ExceptionHandler(AccountNotFoundException.class)
     public ResponseEntity<Object> handleAccountNotFoundException(AccountNotFoundException ex) {
-        ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.NOT_FOUND, LocalDateTime.now(), ex.getMessage());
+        //ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.NOT_FOUND, LocalDateTime.now(), ex.getMessage());
+        ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+                .status(HttpStatus.NOT_FOUND)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @ExceptionHandler(CustomerIdMismatchException.class)
     public ResponseEntity<Object> handleCustomerIdMismatchException(CustomerIdMismatchException ex) {
-        ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        //ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(BalanceInsufficientException.class)
     public ResponseEntity<Object> handleBalanceInsufficientException(BalanceInsufficientException ex) {
-        ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        //ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<Object> handleCustomerNotFoundException(CustomerNotFoundException ex) {
-        ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.NOT_FOUND, LocalDateTime.now(), ex.getMessage());
+        //ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.NOT_FOUND, LocalDateTime.now(), ex.getMessage());
+        ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+                .status(HttpStatus.NOT_FOUND)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleException(Exception ex) {
-        ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        //ErrorResponseDto errorResponse = new ErrorResponseDto(HttpStatus.BAD_REQUEST, LocalDateTime.now(), ex.getMessage());
+        ErrorResponseDto errorResponse = ErrorResponseDto.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .timestamp(LocalDateTime.now())
+                .message(ex.getMessage())
+                .build();
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 }
