@@ -6,7 +6,6 @@ import com.nagarro.accountmanagement.entity.Account;
 import com.nagarro.accountmanagement.exceptions.AccountNotFoundException;
 import com.nagarro.accountmanagement.exceptions.BalanceInsufficientException;
 import com.nagarro.accountmanagement.exceptions.CustomerIdMismatchException;
-import com.nagarro.accountmanagement.exceptions.CustomerNotFoundException;
 import com.nagarro.accountmanagement.mapper.AccountMapper;
 import com.nagarro.accountmanagement.repository.AccountRepository;
 import com.nagarro.accountmanagement.service.AccountService;

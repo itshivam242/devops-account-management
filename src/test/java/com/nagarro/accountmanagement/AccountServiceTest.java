@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AccountServiceTest {
+class AccountServiceTest {
 
     @Mock
     private AccountRepository accountRepository;
@@ -31,7 +31,7 @@ public class AccountServiceTest {
     private AccountServiceImpl accountService;
 
     @Test
-    public void testAddAccount() {
+    void testAddAccount() {
         Account account = new Account();
         account.setAccountId(1L);
         account.setCustomerId(100L);
@@ -53,7 +53,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testGetAccountById() {
+    void testGetAccountById() {
         Account account = new Account();
         account.setAccountId(1L);
         account.setCustomerId(100L);
@@ -75,7 +75,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testDeleteAccount() {
+    void testDeleteAccount() {
         when(accountRepository.findById(1L)).thenReturn(Optional.of(new Account()));
 
         accountService.deleteAccount(1L);
@@ -84,7 +84,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testDeleteAccount_NotFound() {
+    void testDeleteAccount_NotFound() {
         when(accountRepository.findById(1L)).thenReturn(Optional.empty());
 
         assertThrows(AccountNotFoundException.class, () -> accountService.deleteAccount(1L));
